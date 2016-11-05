@@ -52,5 +52,8 @@ public class CDT extends Chubgraph {
     fun void setCDT() {
         CDTFreq/(2.0 - CDTRatio) => f1.freq;
         2 * f1.freq() - CDTFreq => f2.freq;
+        //if (f1.freq() > 22050 || f2.freq() > 22050) {
+            //<<<f1.freq(), f2.freq()>>>;
+        //}
     }
 }

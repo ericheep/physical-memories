@@ -7,6 +7,7 @@
 // smooth transitions throughout the piece.
 
 true => int debug;
+second/samp => float fs;
 
 OscIn in;
 OscMsg msg;
@@ -16,6 +17,7 @@ in.listenAll();
 
 CDT cdt[2];
 WinFuncEnv win[2];
+Gain g[2];
 
 // ease gain parameters
 float eGain[2];
@@ -48,30 +50,33 @@ float maxRatio[2];
 // left/right channels, set incremental parameters
 for (int i; i < 2; i++) {
     win[i].setBlackman();
-    cdt[i] => win[i] => dac.chan(i);
+    cdt[i] => win[i] => g[i] => dac.chan(i);
+    g[i].gain(0.05);
 
-    1.0 => eGain[i];
-    1.2 => eRatio[i];
-
-    10::second => maxWindow[i];
+    15::second => maxWindow[i];
     10::ms => minWindow[i];
 
     0.01 => eGainInc[i];
-    0.0001 => eFreqInc[i];
-    0.00001 => eRatioInc[i];
+    0.03 => eFreqInc[i];
+    0.00002 => eRatioInc[i];
 
     0.001 => eWindowInc[i];
     1.0 => eWindow[i];
     1.0 => currentWindow[i];
 
     1.1 => minRatio[i];
-    1.999 => maxRatio[i];
+    1.9 => maxRatio[i];
 
-    14000 => maxFreq[i];
-    440 => minFreq[i];
+    1024 => maxFreq[i];
+    512 => minFreq[i];
+
+    // set initial paramets
+    1.0 => eGain[i];
+    maxRatio[i] => eRatio[i];
+    maxFreq[i] => eFreq[i];
 
     cdt[i].freq(maxFreq[i]);
-    cdt[i].freq(maxRatio[i]);
+    cdt[i].ratio(maxRatio[i]);
 }
 
 // controlled by changing eGain[idx]
@@ -209,6 +214,8 @@ while (true) {
         if (msg.address == "/minRatio") {
             msg.getInt(0) => int idx;
             msg.getFloat(1) => minRatio[idx];
+            minRatio[idx] => eRatio[idx] => cdt[idx].ratio;
+
             if (debug) {
                 <<< "/minRatio", idx, minRatio[idx] >>>;
             }
@@ -216,8 +223,17 @@ while (true) {
         if (msg.address == "/minFreq") {
             msg.getInt(0) => int idx;
             msg.getFloat(1) => minFreq[idx];
+            minFreq[idx] => eFreq[idx] => cdt[idx].freq;
+
             if (debug) {
                 <<< "/minFreq", idx, minFreq[idx] >>>;
+            }
+        }
+        if (msg.address == "/minWindow") {
+            msg.getInt(0) => int idx;
+            second/msg.getFloat(1) => minWindow[idx];
+            if (debug) {
+                <<< "/minWindow", idx, minWindow[idx] >>>;
             }
         }
     }
