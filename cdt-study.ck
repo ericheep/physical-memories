@@ -6,6 +6,8 @@
 // channel. Most of the controls have an easing functionality for
 // smooth transitions throughout the piece.
 
+true => int debug;
+
 OscIn in;
 OscMsg msg;
 
@@ -32,8 +34,14 @@ float eWindow[2];
 float eWindowInc[2];
 float currentWindow[2];
 
+float minFreq[2];
+float maxFreq[2];
+
 dur maxWindow[2];
 dur minWindow[2];
+
+float minRatio[2];
+float maxRatio[2];
 
 5::ms => dur incrementRate;
 
@@ -55,6 +63,15 @@ for (int i; i < 2; i++) {
     0.001 => eWindowInc[i];
     1.0 => eWindow[i];
     1.0 => currentWindow[i];
+
+    1.1 => minRatio[i];
+    1.999 => maxRatio[i];
+
+    14000 => maxFreq[i];
+    440 => minFreq[i];
+
+    cdt[i].freq(maxFreq[i]);
+    cdt[i].freq(maxRatio[i]);
 }
 
 // controlled by changing eGain[idx]
@@ -153,29 +170,80 @@ fun void pulsing(int idx) {
 spork ~ pulsing(0);
 spork ~ pulsing(1);
 
-5000 => eFreq[0];
-1.5 => eRatio[0];
-1.0 => eWindow[0];
-
-// loop it
+// osc receive
 while (true) {
     in => now;
     while (in.recv(msg)) {
         if (msg.address == "/g") {
             msg.getInt(0) => int idx;
-            msg.getFloat(1) => eGain[idx];
+            msg.getInt(1) => int midiValue;
+            translateGain(midiValue) => eGain[idx];
+            if (debug) {
+                <<< "/g", idx, midiValue, eGain[idx] >>>;
+            }
         }
         if (msg.address == "/f") {
             msg.getInt(0) => int idx;
-            msg.getFloat(1) => eFreq[idx];
+            msg.getInt(1) => int midiValue;
+            translateFreq(idx, midiValue) => eFreq[idx];
+            if (debug) {
+                <<< "/f", idx, midiValue, eFreq[idx] >>>;
+            }
         }
         if (msg.address == "/r") {
             msg.getInt(0) => int idx;
-            msg.getFloat(1) => eRatio[idx];
+            msg.getInt(1) => int midiValue;
+            translateRatio(idx, midiValue) => eRatio[idx];
+            if (debug) {
+                <<< "/r", idx, midiValue, eRatio[idx] >>>;
+            }
         }
         if (msg.address == "/w") {
             msg.getInt(0) => int idx;
-            msg.getFloat(1) => eWindow[idx];
+            msg.getInt(1) => int midiValue;
+            translateWindow(midiValue) => eWindow[idx];
+            if (debug) {
+                <<< "/w", idx, midiValue, eWindow[idx] >>>;
+            }
+        }
+        if (msg.address == "/minRatio") {
+            msg.getInt(0) => int idx;
+            msg.getFloat(1) => minRatio[idx];
+            if (debug) {
+                <<< "/minRatio", idx, minRatio[idx] >>>;
+            }
+        }
+        if (msg.address == "/minFreq") {
+            msg.getInt(0) => int idx;
+            msg.getFloat(1) => minFreq[idx];
+            if (debug) {
+                <<< "/minFreq", idx, minFreq[idx] >>>;
+            }
         }
     }
 }
+
+// exp^2 [0.0, 1.0]
+fun float translateGain(int midiValue) {
+    return (midiValue/127.0) * midiValue/127.0;
+}
+
+// exp^3 [minFreq, maxFreq]
+fun float translateFreq(int idx, int midiValue) {
+    midiValue/127.0 => float scaled;
+    scaled * scaled * scaled => float exp;
+    return exp * (maxFreq[idx] - minFreq[idx]) + minFreq[idx];
+}
+
+// exp^3 (1.0, 2.0)
+fun float translateRatio(int idx, int midiValue) {
+    midiValue/127.0 => float scaled;
+    scaled * scaled * scaled => float exp;
+    return exp * (maxRatio[idx] - minRatio[idx]) + minRatio[idx];
+}
+
+// exp^2 [0.0, 1.0]
+fun float translateWindow(int midiValue) {
+    return (midiValue/127.0) * midiValue/127.0;
+}
+
