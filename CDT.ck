@@ -19,14 +19,19 @@ public class CDT extends Chubgraph {
     }
 
     // sets frequency of the CDT
-    fun void freq(float f) {
+    fun float freq(float f) {
         f => CDTFreq;
         setCDT();
     }
 
-    // the ratio of the two frequencies must
-    // be exclusively between 1.0 and 2.0
-    fun void ratio(float r) {
+    // gets frequency of the CDT
+    fun float freq() {
+        return CDTFreq;
+    }
+
+    // sets the ratio of the two frequencies
+    // must be exclusively between 1.0 and 2.0
+    fun float ratio(float r) {
         if (r > 1.0 && r < 2.0) {
             r => CDTRatio;
             setCDT();
@@ -34,6 +39,11 @@ public class CDT extends Chubgraph {
         else {
             <<< "Ratio falls outside of expected range (1.0, 2.0)", "" >>>;
         }
+    }
+
+    // gets the ratio of the two frequencies
+    fun float ratio() {
+        return CDTRatio;
     }
 
     // internal function to set CDT after either
