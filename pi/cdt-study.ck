@@ -6,7 +6,7 @@
 // channel. Most of the controls have an easing functionality for
 // smooth transitions throughout the piece.
 
-true => int debug;
+false => int debug;
 second/samp => float fs;
 
 OscIn in;
@@ -71,7 +71,7 @@ for (int i; i < 2; i++) {
     512 => minFreq[i];
 
     // set initial paramets
-    1.0 => eGain[i];
+    0.0 => eGain[i];
     maxRatio[i] => eRatio[i];
     maxFreq[i] => eFreq[i];
 
