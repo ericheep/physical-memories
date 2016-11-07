@@ -4,10 +4,10 @@ An experiment involving a custom spatialized audio system, inner-ear distortion 
 * [Distortion-Projucts](#distortion-products)
 * [Raspberry-Pi Setup](#raspberry-pi-setup)
  * [Initial WIFI Setup](#initial-wifi-setup)
-Some text where I cite an author.[^fn1]
-
-[^fn1]: G. Kendall, C. Haworth, and R. F. Cadiz, “Sound Synthesis with Auditory Distortion Products, ”Computer Music Journal, vol. 38, no. 4, Winter 2014.
-
+ * [ChucK/Chugins Installation](#chuck-chugins-installation)
+ * [Putting Your Pi On a Private Network](#putting-your-pi-on-a-private-network)
+ * [HiFiBerry Amp+ Setup](#hifiberry-amp+-setup)
+ * [rc.local](#rc-local)
 
 <a name="distortion-products"/>
 ## Distortion Products
@@ -69,6 +69,7 @@ Altogether, the interfaces file should look like this.
 At this point I recommend installing `ChucK` and it's dependencies and cloning this
 repository onto your pi. Which is shown in the next section.
 
+<a name="chuck-chugins-installation"/>
 ### ChucK/Chugins Installation
 
 To install ChucK, we'll first need a few dependencies, this section requires that
@@ -110,6 +111,7 @@ And if alls well, install it.
 
 ChucK should be ready to go!
 
+<a name="hifiberry-amp+-setup"/>
 ### HiFiBerry Amp+ Setup
 
 This project is using the amp shields from [HiFiBerry](https://www.hifiberry.com/),
@@ -129,6 +131,7 @@ Then replace it with this HiFiBerry
 
 And that's it! ChucK will automatically use the amp now.
 
+<a name="putting-your-pi-on-a-private-network"/>
 ### Putting Your Pi On a Private Network
 
 This project uses a dedicated router for its communication, this ensures that
@@ -160,6 +163,7 @@ This project is using two pis, `agnes` & `ethel`.
 
 `agnes` will be set to 192.168.1.10, and `ethel` will be set to 192.168.1.20.
 
+<a name="rc.local"/>
 ### rc.local
 
 The last step, is to tell your pi to boot the ChucK script on boot, and this can
