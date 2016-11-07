@@ -1,29 +1,42 @@
 # pi-distortion-product
 An experiment involving a custom spatialized audio system, inner-ear distortion products, and mechatronics.
 
+* [Introduction](#introduction)
+* [Mechatronics](#mechatronics)
+ * [Meepo](#meepo)
 * [Distortion-Projucts](#distortion-products)
-* [Raspberry-Pi Setup](#raspberry-pi-setup)
+ * [Cubic Distortion Tones](#cubic-distortion-tones)
+* [Raspberry-Pi Setup (Ethel & Agnes)](#raspberry-pi-setup)
  * [Initial WIFI Setup](#initial-wifi-setup)
  * [ChucK/Chugins Installation](#chuck-chugins-installation)
- * [Putting Your Pi On a Private Network](#putting-your-pi-on-a-private-network)
  * [HiFiBerry Amp+ Setup](#hifiberry-amp+-setup)
+ * [Putting Your Pi On a Private Network](#putting-your-pi-on-a-private-network)
  * [rc.local](#rc-local)
+
+<a name="introduction"/>
+## Introduction
+
+<a name="mechatronics"/>
+## Mechatronics
+
+<a name="meepo"/>
+### Meepo
 
 <a name="distortion-products"/>
 ## Distortion Products
 
+### Cubic Distortion Tones
 This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
-from ["Sound Synthesis with Auditory Distortion Products"](#kendall)
+from ["Sound Synthesis with Auditory Distortion Products"][#kendall et al]
 
 
-[#kendall] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
+[#kendall et al] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
 <a name="raspberry-pi-setup"/>
 ## Raspberry-Pi Setup (Ethel & Agnes)
 Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/), and then
-do some basic configuration. I named my pis `ethel` and `agnes`, and set the keyboard
-to US.
+do some basic configuration. I named my pis `ethel` and `agnes`, and set my keyboard type to US.
 
 <a name="initial-wifi-setup"/>
 ### Initial WIFI Setup
@@ -105,7 +118,7 @@ Then navigate into the `chugins/winfuncenv/` directory and build the Chugin.
     cd ~/git/chugins/winfuncenv
     make linux-alsa
 
-And if alls well, install it.
+And if all's well, install it.
 
     sudo make install
 
@@ -149,7 +162,7 @@ IP will be listed under `Gateway`, it should look something like the following.
     0.0.0.0         192.168.X.X     0.0.0.0         UG      0 0         0 wlan0
     192.168.1.0     0.0.0.0         255.255.255.0   U       0 0         0 wlan0
 
-Then type on `sudo nano /etc/dhcpcd.conf` to edit the `dhcpdc.conf` file, at the bottom, add the following.
+Then type on `sudo nano /etc/dhcpcd.conf` to edit the `dhcpcd.conf` file, at the bottom, add the following.
 
     interface wlan0
 
