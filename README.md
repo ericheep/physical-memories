@@ -32,9 +32,9 @@ from <cite>["Sound Synthesis with Auditory Distortion Products"][1]</cite>
 
 <cite>[the Ear Tone Toolbox offered by Alex Chechile][2]</cite>
 
-[1]: https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
+    [1]: https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
 
-[2]: http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
+    [2]: http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
 <a name="raspberry-pi-setup"/>
 ## Raspberry-Pi Setup (Ethel & Agnes)
