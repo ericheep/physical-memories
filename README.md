@@ -28,12 +28,11 @@ An experiment involving a custom spatialized audio system, inner-ear distortion 
 ### Cubic Distortion Tones
 This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
-from ["Sound Synthesis with Auditory Distortion Products"][#kendall et al]
+from <cite>["Sound Synthesis with Auditory Distortion Products"][#kendall et al]</cite>
 
-[the Ear Tone Toolbox offered by Alex Chechile][#chechile]
+<cite>[the Ear Tone Toolbox offered by Alex Chechile][#chechile]</cite>
 
 [#chechile] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
-
 [#kendall et al] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
 <a name="raspberry-pi-setup"/>
@@ -179,7 +178,7 @@ This project is using two pis, `agnes` & `ethel`.
 
 `agnes` will be set to 192.168.1.10, and `ethel` will be set to 192.168.1.20.
 
-<a name="rc.local"/>
+<a name="rc-local"/>
 ### rc.local
 
 The last step, is to tell your pi to boot the ChucK script on boot, and this can
