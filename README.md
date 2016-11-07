@@ -1,11 +1,24 @@
 # pi-distortion-product
 An experiment involving a custom spatialized audio system, inner-ear distortion products, and mechatronics.
 
-# setup
+[Distortion-Projucts](#distortion-products)
+[Raspberry-Pi Setup](#raspberry-pi-setup)
 
-## Raspberry-Pi Setup
+Some text where I cite an author.[^fn1]
+
+[^fn1]: G. Kendall, C. Haworth, and R. F. Cadiz, “Sound Synthesis with Auditory Distortion Products, ”Computer Music Journal, vol. 38, no. 4, Winter 2014.
+
+
+<name="distortion-products"/>
+## Distortion Products
+
+This project builds off of the research of creating otoacoustic emmisions in
+compositional means.
+
+<a name="raspberry-pi-setup"/>
+## Raspberry-Pi Setup (Ethel & Agnes)
 Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/), and then
-do some basic configuration. I named my pis Agnes and Ethel, and set the keyboard
+do some basic configuration. I named my pis `ethel` and `agnes`, and set the keyboard
 to US.
 
 ### Initial WIFI Setup
@@ -51,7 +64,7 @@ Altogether, the interfaces file should look like this.
 At this point I recommend installing `ChucK` and it's dependencies and cloning this
 repository onto your pi. Which is shown in the next section.
 
-### ChucK/Chugins Setup
+### ChucK/Chugins Installation
 
 To install ChucK, we'll first need a few dependencies, this section requires that
 your pi is connected to the internet, which is outlined in the above section.
@@ -117,11 +130,14 @@ This project uses a dedicated router for its communication, this ensures that
 and network traffic doesn't have to compete with competing signals, and also enables
 each pi to have a static IP address.
 
+Like before, I'll have to edit my `wpa-supplicant.conf` file and change to the proper
+network.
+
 To set a static IP, we'll have to edit the `/etc/dhcpcd.conf` file, but first we'll
 need to know the router's IP address. To find it, type in `netstat -nr`, the router's
 IP will be listed under `Gateway`, it should look something like the following.
 
-    Destination     Gateway         Genmaks         Flag    MSS Window  irtt Iface
+    Destination     Gateway         Genmask         Flag    MSS Window  irtt Iface
     0.0.0.0         192.168.X.X     0.0.0.0         UG      0 0         0 wlan0
     192.168.1.0     0.0.0.0         255.255.255.0   U       0 0         0 wlan0
 
