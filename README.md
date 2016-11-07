@@ -30,6 +30,7 @@ This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
 from ["Sound Synthesis with Auditory Distortion Products"][#kendall et al]
 
+[the Ear Tone Toolbox offered by Alex Chechile][#chechile]
 
 [#chechile] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
 [#kendall et al] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
