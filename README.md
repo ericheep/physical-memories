@@ -9,11 +9,15 @@ Some text where I cite an author.[^fn1]
 [^fn1]: G. Kendall, C. Haworth, and R. F. Cadiz, “Sound Synthesis with Auditory Distortion Products, ”Computer Music Journal, vol. 38, no. 4, Winter 2014.
 
 
-<name="distortion-products"/>
+<a name="distortion-products"/>
 ## Distortion Products
 
 This project builds off of the research of creating otoacoustic emmisions in
-compositional means.
+compositional means. Much of the synthesis in this project builds off of the research
+from ["Sound Synthesis with Auditory Distortion Products"](#kendall)
+
+
+[#kendall] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
 <a name="raspberry-pi-setup"/>
 ## Raspberry-Pi Setup (Ethel & Agnes)
