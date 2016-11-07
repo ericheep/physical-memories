@@ -1,9 +1,9 @@
 # pi-distortion-product
 An experiment involving a custom spatialized audio system, inner-ear distortion products, and mechatronics.
 
-[Distortion-Projucts](#distortion-products)
-[Raspberry-Pi Setup](#raspberry-pi-setup)
-
+* [Distortion-Projucts](#distortion-products)
+* [Raspberry-Pi Setup](#raspberry-pi-setup)
+ * [Initial WIFI Setup](#initial-wifi-setup)
 Some text where I cite an author.[^fn1]
 
 [^fn1]: G. Kendall, C. Haworth, and R. F. Cadiz, “Sound Synthesis with Auditory Distortion Products, ”Computer Music Journal, vol. 38, no. 4, Winter 2014.
@@ -25,6 +25,7 @@ Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/), and the
 do some basic configuration. I named my pis `ethel` and `agnes`, and set the keyboard
 to US.
 
+<a name="initial-wifi-setup"/>
 ### Initial WIFI Setup
 
 Next, we'll need to enable the WIFI; I'm using Raspberry Pi 3s, so I'll be using
