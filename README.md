@@ -91,3 +91,64 @@ And if alls well, install it.
     sudo make install
 
 ChucK should be ready to go!
+
+### HiFiBerry Amp+ Setup
+
+This project is using the amp shields from [HiFiBerry](https://www.hifiberry.com/),
+so we'll need to disable the default soundcard and instead use the DAC on the amp.
+
+We'll need to edit our `/boot/config.txt` on our pi. So `nano` into it.
+
+    sudo nano /boot/config.txt
+
+And remove or comment out the default soundcard.
+
+    dtparam=audio=on
+
+Then replace it with this HiFiBerry
+
+    dtoverlay=hifiberry-amp
+
+And that's it! ChucK will automatically use the amp now.
+
+### Putting Your Pi On a Private Network
+
+This project uses a dedicated router for its communication, this ensures that
+and network traffic doesn't have to compete with competing signals, and also enables
+each pi to have a static IP address.
+
+To set a static IP, we'll have to edit the `/etc/dhcpcd.conf` file, but first we'll
+need to know the router's IP address. To find it, type in `netstat -nr`, the router's
+IP will be listed under `Gateway`, it should look something like the following.
+
+    Destination     Gateway         Genmaks         Flag    MSS Window  irtt Iface
+    0.0.0.0         192.168.X.X     0.0.0.0         UG      0 0         0 wlan0
+    192.168.1.0     0.0.0.0         255.255.255.0   U       0 0         0 wlan0
+
+Then type on `sudo nano /etc/dhcpcd.conf` to edit the `dhcpdc.conf` file, at the bottom, add the following.
+
+    interface wlan0
+
+    static ip_address=192.168.1.10/24       #put your desired IP address here, with the /24 after it
+    static routers=192.168.X.X              #put your router's IP address here, in place of the 192.168.X.X
+    static domain_name_servers=192.168.X.X  #same IP address as the above line
+
+Reboot to make sure that your IP is to what you set it, and you're still on the network, then you should be good to go.
+
+This project is using two pis, `agnes` & `ethel`.
+
+`agnes` will be set to 192.168.1.10, and `ethel` will be set to 192.168.1.20.
+
+### rc.local
+
+The last step, is to tell your pi to boot the ChucK script on boot, and this can
+but done by editing your `etc/rc.local` file.
+
+This is the scariest part, because if you forget to tell your program to run in the
+background, then your pi will be locked out. Generally on a command line, you tell
+a program to run in the background by placing an `&` after the command. We'll add the
+following line to our `rc.local`.
+
+    chuck /pi/home/git/pi-distortion-product/pi/run-pi.ck &
+
+Now the pis should start the script on boot.
