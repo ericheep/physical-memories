@@ -25,13 +25,18 @@ An experiment involving a custom spatialized audio system, inner-ear distortion 
 <a name="distortion-products"/>
 ## Distortion Products
 
-![equation](http://latex.codecogs.com/gif.latex?f_%7B1%7D%20%3D%20%5Cfrac%7BCDT%7D%7B2%20-%20ratio%7D)  
 
 ### Cubic Distortion Tones
 This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
 from "Sound Synthesis with Auditory Distortion Products" [[1]](#1) and was inspired
 by the of Alex Chechile and his Ear Tone Toolbox [[2]](#2)
+
+> ![equation](http://latex.codecogs.com/gif.latex?CDT%20%3D%202%7Bf_%7B1%7D%7D%20-%20%7Bf_2%7D)
+
+> ![equation](http://latex.codecogs.com/gif.latex?%7Bf_2%7D%20%3D%202%7Bf_%7B1%7D%7D%20-%20CDT)
+
+> ![equation](http://latex.codecogs.com/gif.latex?f_%7B1%7D%20%3D%20%5Cfrac%7BCDT%7D%7B2%20-%20ratio%7D)  
 
 <a name="1"/>
 > [1] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
