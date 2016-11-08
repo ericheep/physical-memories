@@ -37,29 +37,37 @@ Quadratic Distortion Tone:
 Cubic Distortion Tone:
 
     CDT = 2f1 - f2, f2 > f1
+    
+<a name="1"/>
+> [1] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
 ### Cubic Distortion Tones
 
-This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[1]](#1) whereas CDTs are less dependent on the sound pressure level but are less controllable in general. The experimental nature of the music does not guarantee that distortion products are always present during performance, but rather can drift in and out of perception dependent on the frequency range and frequency separation of the original two tones.
+This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[1]](#1) whereas CDTs are less dependent on sound pressure level and more dependent on the frequency range and frequency separation of the original two tones. 
+
+This makes the creation of CDTs less predictable, but it is ideal for my aesethic. The experimental nature of this music does not guarantee that distortion products are always present during performance, but rather drift in and out of perception based on the ratio between the original two tones.
+
+By utilizing Music Information Retrieval on the tones created by the mechatronic sound sculptures, a triadic chord can be created by choosing ratios of the orginal two tones which are also ideal for creating CDT. In other words, the expected CDT can be tuned to the fundamental of the mechatronics, fusing the *physical* characteristics of the two compositional materials.
+
+f2/f1 | f1:f2 | Interval | 2f1 - f2:f1:f2 | Resulting Chord
+------|-------|----------|----------------|----------------
+1.25 | 4:5 | Major Third | 3:4:5 | Major Triad
+1.2 | 5:6 | Minor Third | 4:5:6 | Major Triad
+1.166| 6:7 | ~Minor Third | 5:6:7 | ~Diminished Chord
+1.1428 | 7:8 | ~Major Second | 6:7:8 | Non-tertian Triad
+1.125 | 8:9 | Major Second | 7:8:9 | ~Whole-tone Triad
+1.111 | 9:10 | Major Second | 8:9:10 | Whole-tone Cluster
 
 This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
 from "Sound Synthesis with Auditory Distortion Products" [[1]](#1) and was inspired
 by the of Alex Chechile and his Ear Tone Toolbox [[2]](#2)
 
+    f1 = CDT/(2 - ratio)
 
-> ![equation](http://latex.codecogs.com/gif.latex?CDT%20%3D%202%7Bf_%7B1%7D%7D%20-%20%7Bf_2%7D)
-
-> ![equation](http://latex.codecogs.com/gif.latex?%7Bf_2%7D%20%3D%202%7Bf_%7B1%7D%7D%20-%20CDT)
-
-> ![equation](http://latex.codecogs.com/gif.latex?f_%7B1%7D%20%3D%20%5Cfrac%7BCDT%7D%7B2%20-%20ratio%7D)  
-
-<a name="1"/>
-> [1] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
 
 <a name="2"/>
-> [2] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
-
+> [2] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
 
 
 <a name="raspberry-pi-setup"/>
