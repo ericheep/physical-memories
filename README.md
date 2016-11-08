@@ -1,12 +1,12 @@
 # physical-memories
-An experimental piece involving a custom spatialized audio system, Music Information Retrieval, inner-ear distortion products, and mechatronics.
+An experimental piece involving a custom spatialized audio system, Music Information Retrieval, inner-ear distortion products, and mechatronic sound objects.
 
 * [Introduction](#introduction)
-* [Mechatronic Sound Objects](#mechatronics)
+* [Mechatronic Sound Objects](#mechatronic-sound-objects)
  * [Meepo](#meepo)
 * [Music Information Retrieval](#music-information-retrieval)
  * [ChucK MIR Library](#chuck-mir-library)
-* [Audutory Distortion Projucts](#auditory-distortion-products)
+* [Auditory Distortion Projects](#auditory-distortion-products)
  * [Cubic Distortion Tones](#cubic-distortion-tones)
 * [Raspberry-Pi System](#raspberry-pi-system)
 * [Raspberry-Pi Setup (Ethel & Agnes)](#raspberry-pi-setup)
@@ -26,9 +26,9 @@ The distortion tones are also created using a wireless Raspberry Pi system. The 
 
 There are three main technologies that are being utilized in this project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products. A short introduction to these technologies along with their implementation will be described.
 
-<a name="mechatronics"/>
+<a name="mechatronic-sound-objects"/>
 ## Mechatronic Sound Objects
-This project uses mechatronic objects as a primary source of its auditory material. Much like the work of Mo Zareei, this project uses "a mechatronic instrument in which the buzzing of DC motors and actuation noises of solenoids are not to be perceived as some form of unwanted aural by-product, but as the instrument’s main sonic output."[[1]](#1)
+This project uses mechatronic objects as a primary source of its auditory material. Much like the work of [Mo H. Zareei](http://m-h-z.net/), this project uses "a mechatronic instrument in which the buzzing of DC motors and actuation noises of solenoids are not to be perceived as some form of unwanted aural by-product, but as the instrument’s main sonic output."[[1]](#1)
 
 The solenoids will be driven in a matter which ultimately results in a tones being created due to their velocity and frequency of actuation. The solenoids will also be striking various materials at various distances, and the derivation of the tones will be large area of experimentation.
 
@@ -41,17 +41,19 @@ A custom actuator shield will be used to control the solenoids, which allows ser
 
 Here's a quick [Vimeo](https://vimeo.com/151490307) of the board in action.
 
-<a name="music-information-retreival"/>
-## Music Information Retreival
+<a name="music-information-retrieval"/>
+## Music Information Retrieval
 Music Information Retrieval is a growing field of research that extracts information from music. Generally, MIR consists of deciphering the result of a Fourier Transform and transforming that data in high-level information. In the scope of this project, the general frequencies that are created by the mechatronic instruments can be deciphered, which would then be recreated through otoacoustic emissions.
 
 <a name="chuck-mir-library"/>
 ### ChucK MIR Library
 I developed a small library of commonly used MIR functions that extend the extraction functionality of ChucK, which is located here: https://github.com/ericheep/mir-chuck/
 
-This library uses the Fast-Fourier Transformation process found in ChucK to extract features, such as the spectral centroid, the spectral spread, the spectral crest, and other low-level descriptors.  The library can also transform the FFT bins into a Mel Bands, Constant Q bins, or a Chromagram. The implementation of this library will allow for the mechatronic tones to be analyzed in real-time, and that information can then be considered in the creation of the Auditory Distortion Products.
+This library uses the Fast-Fourier Transformation process found in ChucK to extract features, such as the spectral centroid, the spectral spread, the spectral crest, and other low-level descriptors.
 
-<a name="distortion-products"/>
+This library can also transform the FFT bins into a Mel Bands, Constant Q bins, or a Chromagram. The implementation of this library will allow for the mechatronic tones to be analyzed in real-time, and that information can then be considered in the creation of the Auditory Distortion Products.
+
+<a name="auditory-distortion-products"/>
 ## Auditory Distortion Products
 A combination tone is the result of two tones tuned at different frequencies and played simultaneously, creating a third tone which is heard independently of the original two tones. If the original two tones are tuned to specific frequencies, and played at an appropriate volume, the combination tone that results can stimulate the inner ear, creating a tone that is the result of the physical distortion of the cochlear. It is more accurately described as "the direct stimulation of the basilar membrane that gives rise to a perception of sound", as opposed to an "acoustic emission in the ear canal [[2]](#2)
 
@@ -78,6 +80,7 @@ Cubic Distortion Tone:
 <a name="4"/>
 > [4] https://ccrma.stanford.edu/~chechile/eartonetoolbox/Chechile_ICMC16.pdf "The Ear Tone Toolbox for Auditory Distortion Product Synthesis"
 
+<a name="cubic-distortion-tones"/>
 ### Cubic Distortion Tones
 
 This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[2]](#2) whereas CDTs are less dependent on sound pressure level and more dependent on the frequency range and frequency separation of the original two tones.
