@@ -1,9 +1,12 @@
 # pi-distortion-product
-An experiment involving a custom spatialized audio system, inner-ear distortion products, and mechatronics.
+An experiment involving a custom spatialized audio system, Music Information Retreival, inner-ear distortion products, and mechatronics.
 
 * [Introduction](#introduction)
 * [Mechatronics](#mechatronics)
  * [Meepo](#meepo)
+ * [Noise](#noise)
+* [Music Information Retrieval](#music-information-retrieval)
+ * [ChucK MIR Library](#chuck-mir-library)
 * [Audutory Distortion Projucts](#auditory-distortion-products)
  * [Cubic Distortion Tones](#cubic-distortion-tones)
 * [Raspberry-Pi Setup (Ethel & Agnes)](#raspberry-pi-setup)
@@ -16,14 +19,25 @@ An experiment involving a custom spatialized audio system, inner-ear distortion 
 <a name="introduction"/>
 ## Introduction
 
+This is the repository and overview of an ongoing project that utilizes machine noise and sine tones to in an experimental music performance. There are three main features of the project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products.
+
 <a name="mechatronics"/>
 ## Mechatronics
 
 <a name="meepo"/>
 ### Meepo
 
+<a name="noise"/>
+### Noise
+
+<a name="music-information-retreival"/>
+## Music Information Retreival
+
+<a name="chuck-mir-library"/>
+### ChucK MIR Library
+
 <a name="distortion-products"/>
-## Auditory Distortion Product
+## Auditory Distortion Products
 A combination tone is the result of two tones tuned at different frequencies and played simultanously, creating a third tone which is heard independently of the original two tones. If the original two tones are tuned to specific frequencies, and played at an appropriate volume, the combination tone that results can stimulate the inner ear, creating a tone that is the result of the physical distortion of the cochlear. It is more accurately described as "the direct stimulation of the basilar membane that gives rise to a perception of sound", as opposed to an "acoustic emission in the ear canal [[1]](#1)
 
 Composers have been exploring this terrain for quite some time and it has become an emerging topic in music research. Maryanne Armacher expressed delight at the phenomena; 'that my "ears were emitting sounds" as well as recieving them, that is hearing other acoustically produced tones at the same time, was incredible to me!'[[2]](#2). Alex Chichile recently released *The Ear Tone Toolbox*, which is a "collection of open source unit generators for the production of auditory distortion product synthesis."[[3]](#3) Phil Niblock would usually work outside-in when utilizing distortion products, as he "applies microtonoal pitch shifts and spectral alterations in order to enhance the audibility and predominance of the naturally occuring combination tones, as well as to introduce new ones."[[1]](#1)
@@ -60,7 +74,7 @@ This is done by using the CDT in combination with ratio to derive the other two 
     f1 = CDT/(2 - ratio),   1.0 < ratio < 2.0
     f2 = 2f1 - CDT,         f2 < f1
 
-This table specifies the chords that can be created using certain harmonic ratios. [[1]](#1)
+This table specifies some of the natural harmonic chords that can be created using certain harmonic ratios. [[1]](#1)
 
     f2/f1 | f1:f2 | Interval | 2f1 - f2:f1:f2 | Resulting Chord
     ------|-------|----------|----------------|----------------
