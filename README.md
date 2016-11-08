@@ -39,6 +39,8 @@ The solenoids will be driven in a matter which ultimately results in a tones bei
 ### Meepo
 A custom actuator shield will be used to control the solenoids, which allows serial communication to the solenoids using ChucK: https://github.com/ericheep/meepo
 
+![Meepo shield](http://ericheep.com/images/meepo-2.jpg)
+
 Here's a quick [Vimeo](https://vimeo.com/151490307) of the board in action.
 
 <a name="music-information-retrieval"/>
