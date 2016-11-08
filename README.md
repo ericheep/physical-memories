@@ -2,9 +2,8 @@
 An experimental piece involving a custom spatialized audio system, Music Information Retrieval, inner-ear distortion products, and mechatronics.
 
 * [Introduction](#introduction)
-* [Mechatronics](#mechatronics)
+* [Mechatronic Sound Objects](#mechatronics)
  * [Meepo](#meepo)
- * [Noise](#noise)
 * [Music Information Retrieval](#music-information-retrieval)
  * [ChucK MIR Library](#chuck-mir-library)
 * [Audutory Distortion Projucts](#auditory-distortion-products)
@@ -18,19 +17,21 @@ An experimental piece involving a custom spatialized audio system, Music Informa
 
 <a name="introduction"/>
 ## Introduction
-This is the repository and overview of an ongoing project that utilizes various technologies in an experimental music performance, the intent of which is to fuse together the unamplified sound of machine noise with synthesized sine tones. There are three main technologies that are being utilized in this project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products. A short introduction to these technologies along with their implementation will be described.
+This is the repository and overview of an ongoing project that utilizes various technologies in an experimental music performance, the intent of which is to fuse together the unamplified sound of machine noise with synthesized sine tones.
+
+The primary compositional focus is in creating a performance that alternates the physical and harsh noise of mechatronics with the physical sensation of auditory distortion products. The idea is to drive a solenoid at a specific speed and velocity which results in the solenoid creating a tone; that tone will be analyzed by and then recreated as a auditory distortion product, which is an otoacoustic emission that is created by stimulating the basilar membrane of the inner ear. The alternation of these two sensations and the processes in which they are created will become the compositional process that guides the performance.
+
+There are three main technologies that are being utilized in this project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products. A short introduction to these technologies along with their implementation will be described.
 
 <a name="mechatronics"/>
-## Mechatronics
+## Mechatronic Sound Objects
+This project uses mechatronic objects as a primary source of compositional material. Much like the work of Mo Zareei, this project is concerned with "a mechatronic instrument in which the buzzing of DC motors and actuation noises of solenoids are not to be perceived as some form of unwanted aural by-product, but as the instrument’s main sonic output."
 
 <a name="meepo"/>
 ### Meepo
 A custom actuator shield will be used to control the solenoids, which allows serial communication to the solenoids using ChucK: https://github.com/ericheep/meepo
 
 Here's a quick [Vimeo](https://vimeo.com/151490307) of the board in action.
-
-<a name="noise"/>
-### Noise
 
 <a name="music-information-retreival"/>
 ## Music Information Retreival
@@ -73,7 +74,7 @@ Cubic Distortion Tone:
 
 This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[1]](#1) whereas CDTs are less dependent on sound pressure level and more dependent on the frequency range and frequency separation of the original two tones.
 
-This makes the creation of CDTs less predictable, but it is ideal for my aesethic. The experimental nature of this music does not guarantee that distortion products are always present during performance, but rather drift in and out of perception based on the ratio between the original two tones. Additionally, it is possible to modify the ratio of the CDT instead of the frequency of the CDT itself, allowing a static fundamental in the presence of shifting tones.
+This makes the creation of CDTs less predictable, but it is ideal for my aesthetic. The experimental nature of this music does not guarantee that distortion products are always present during performance, but rather drift in and out of perception based on the ratio between the original two tones. Additionally, it is possible to modify the ratio of the CDT instead of the frequency of the CDT itself, allowing a static fundamental in the presence of shifting tones. This ensures that the tone originally derived from the mechatronic actuation remains static among shifting tones.
 
 This is done by using the CDT in combination with ratio to derive the other two tones.
 
@@ -159,8 +160,10 @@ You can use `apt-get` to install these dependencies.
     sudo apt-get install alsa-base libasound2-dev libasndfile1-dev
 
 Use `git` (which comes installed by default on Raspbian) to clone ChucK. Choose a
-directory to install into, I use `~/git/`, and then clone ChucK.
+directory to install into, I usually create a `git` folder in the home directory, and then clone ChucK into there.
 
+    mkdir ~/git
+    cd ~/git
     git clone https://github.com/ccrma/chuck
 
 Then we'll have to navigate into the `chuck/src` and `make` the ChucK build.
