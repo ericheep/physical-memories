@@ -51,6 +51,8 @@ Music Information Retrieval is a growing field of research that extracts informa
 ### ChucK MIR Library
 I developed a small library of commonly used MIR functions that extend the extraction functionality of ChucK, which is located here: https://github.com/ericheep/mir-chuck/
 
+![ChucK MIR Library Extracting MFCCs in Real Time](https://github.com/ericheep/mir-chuck/blob/master/images/mfccs.png?raw=true)
+
 This library uses the Fast-Fourier Transformation process found in ChucK to extract features, such as the spectral centroid, the spectral spread, the spectral crest, and other low-level descriptors.
 
 This library can also transform the FFT bins into a Mel Bands, Constant Q bins, or a Chromagram. The implementation of this library will allow for the mechatronic tones to be analyzed in real-time, and that information can then be considered in the creation of the Auditory Distortion Products.
