@@ -25,6 +25,8 @@ An experiment involving a custom spatialized audio system, inner-ear distortion 
 <a name="distortion-products"/>
 ## Distortion Products
 
+![equation](http://latex.codecogs.com/gif.latex?f_%7B1%7D%20%3D%20%5Cfrac%7BCDT%7D%7B2%20-%20ratio%7D)  
+
 ### Cubic Distortion Tones
 This project builds off of the research of creating otoacoustic emmisions in
 compositional means. Much of the synthesis in this project builds off of the research
