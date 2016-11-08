@@ -1,5 +1,5 @@
-# pi-distortion-product
-An experiment involving a custom spatialized audio system, Music Information Retreival, inner-ear distortion products, and mechatronics.
+# physical-memories
+An experimental piece involving a custom spatialized audio system, Music Information Retrieval, inner-ear distortion products, and mechatronics.
 
 * [Introduction](#introduction)
 * [Mechatronics](#mechatronics)
@@ -18,29 +18,35 @@ An experiment involving a custom spatialized audio system, Music Information Ret
 
 <a name="introduction"/>
 ## Introduction
-
-This is the repository and overview of an ongoing project that utilizes machine noise and sine tones to in an experimental music performance. There are three main features of the project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products.
+This is the repository and overview of an ongoing project that utilizes various technologies in an experimental music performance, the intent of which is to fuse together the unamplified sound of machine noise with synthesized sine tones. There are three main technologies that are being utilized in this project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products. A short introduction to these technologies along with their implementation will be described.
 
 <a name="mechatronics"/>
 ## Mechatronics
 
 <a name="meepo"/>
 ### Meepo
+A custom actuator shield will be used to control the solenoids, which allows serial communication to the solenoids using ChucK: https://github.com/ericheep/meepo
+
+Here's a quick [Vimeo](https://vimeo.com/151490307) of the board in action.
 
 <a name="noise"/>
 ### Noise
 
 <a name="music-information-retreival"/>
 ## Music Information Retreival
+Music Information Retrieval is a growing field of research that extracts information from music. Generally, MIR consists of deciphering the result of a Fourier Transform and transforming that data in high-level information. In the scope of this project, the general frequencies that are created by the mechatronic instruments can be deciphered, which would then be recreated through otoacoustic emissions.
 
 <a name="chuck-mir-library"/>
 ### ChucK MIR Library
+I developed a small library of commonly used MIR functions that extend the extraction functionality of ChucK, which is located here: https://github.com/ericheep/mir-chuck/
+
+This library uses the Fast-Fourier Transformation process found in ChucK to extract features, such as the spectral centroid, the spectral spread, the spectral crest, and other low-level descriptors.  The library can also transform the FFT bins into a Mel Bands, Constant Q bins, or a Chromagram. The implementation of this library will allow for the mechatronic tones to be analyzed in real-time, and that information can then be considered in the creation of the Auditory Distortion Products.
 
 <a name="distortion-products"/>
 ## Auditory Distortion Products
-A combination tone is the result of two tones tuned at different frequencies and played simultanously, creating a third tone which is heard independently of the original two tones. If the original two tones are tuned to specific frequencies, and played at an appropriate volume, the combination tone that results can stimulate the inner ear, creating a tone that is the result of the physical distortion of the cochlear. It is more accurately described as "the direct stimulation of the basilar membane that gives rise to a perception of sound", as opposed to an "acoustic emission in the ear canal [[1]](#1)
+A combination tone is the result of two tones tuned at different frequencies and played simultaneously, creating a third tone which is heard independently of the original two tones. If the original two tones are tuned to specific frequencies, and played at an appropriate volume, the combination tone that results can stimulate the inner ear, creating a tone that is the result of the physical distortion of the cochlear. It is more accurately described as "the direct stimulation of the basilar membrane that gives rise to a perception of sound", as opposed to an "acoustic emission in the ear canal [[1]](#1)
 
-Composers have been exploring this terrain for quite some time and it has become an emerging topic in music research. Maryanne Armacher expressed delight at the phenomena; 'that my "ears were emitting sounds" as well as recieving them, that is hearing other acoustically produced tones at the same time, was incredible to me!'[[2]](#2). Alex Chichile recently released *The Ear Tone Toolbox*, which is a "collection of open source unit generators for the production of auditory distortion product synthesis."[[3]](#3) Phil Niblock would usually work outside-in when utilizing distortion products, as he "applies microtonoal pitch shifts and spectral alterations in order to enhance the audibility and predominance of the naturally occuring combination tones, as well as to introduce new ones."[[1]](#1)
+Composers have been exploring this terrain for quite some time and it has become an emerging topic in music research. Maryanne Armacher expressed delight at the phenomena; 'that my "ears were emitting sounds" as well as recieving them, that is hearing other acoustically produced tones at the same time, was incredible to me!'[[2]](#2). Alex Chichile recently released *The Ear Tone Toolbox*, which is a "collection of open source unit generators for the production of auditory distortion product synthesis."[[3]](#3) Phil Niblock would usually work outside-in when utilizing distortion products, as he "applies microtonoal pitch shifts and spectral alterations in order to enhance the audibility and predominance of the naturally occurring combination tones, as well as to introduce new ones."[[1]](#1)
 
 What results from all this is a *physical* music. It is music which manipulates the ear into experiencing "subjective sounds that are evoked by physical acoustic signals and generated by the active components of the cochlear." [[1]](#1)
 
@@ -53,7 +59,7 @@ Quadratic Distortion Tone:
 Cubic Distortion Tone:
 
     CDT = 2f1 - f2, f2 > f1
-    
+
 <a name="1"/>
 > [1] http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00265 "Sound Synthesis with Auditory Distortion Products"
 
@@ -65,7 +71,7 @@ Cubic Distortion Tone:
 
 ### Cubic Distortion Tones
 
-This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[1]](#1) whereas CDTs are less dependent on sound pressure level and more dependent on the frequency range and frequency separation of the original two tones. 
+This project at this stage is primarily focusing on Cubic Distortion Tones as opposed to Quadratic Distortion Tones. QDTs often have to be "presented at a level that is uncomfortable for most listeners,"[[1]](#1) whereas CDTs are less dependent on sound pressure level and more dependent on the frequency range and frequency separation of the original two tones.
 
 This makes the creation of CDTs less predictable, but it is ideal for my aesethic. The experimental nature of this music does not guarantee that distortion products are always present during performance, but rather drift in and out of perception based on the ratio between the original two tones. Additionally, it is possible to modify the ratio of the CDT instead of the frequency of the CDT itself, allowing a static fundamental in the presence of shifting tones.
 
@@ -233,7 +239,7 @@ Reboot to make sure that your IP is to what you set it, and you're still on the 
 
 This project is using two pis, `agnes` & `ethel`.
 
-`agnes` will be set to 192.168.1.10, and `ethel` will be set to 192.168.1.20.
+`agnes` will be set to `192.168.1.10`, and `ethel` will be set to `192.168.1.20`.
 
 <a name="rc-local"/>
 ### rc.local
