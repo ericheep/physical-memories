@@ -9,12 +9,12 @@ An experimental piece involving a custom spatialized audio system, Music Informa
 * [Auditory Distortion Projects](#auditory-distortion-products)
  * [Cubic Distortion Tones](#cubic-distortion-tones)
 * [Raspberry-Pi System](#raspberry-pi-system)
-* [Raspberry-Pi Setup (Ethel & Agnes)](#raspberry-pi-setup)
- * [Initial WIFI Setup](#initial-wifi-setup)
- * [ChucK/Chugins Installation](#chuck-chugins-installation)
- * [HiFiBerry Amp+ Setup](#hifiberry-amp+-setup)
- * [Putting Your Pi On a Private Network](#putting-your-pi-on-a-private-network)
- * [rc.local](#rc-local)
+ * [Raspberry-Pi Setup (Ethel & Agnes)](#raspberry-pi-setup)
+  * [Initial WIFI Setup](#initial-wifi-setup)
+  * [ChucK/Chugins Installation](#chuck-chugins-installation)
+  * [HiFiBerry Amp+ Setup](#hifiberry-amp+-setup)
+  * [Putting Your Pi On a Private Network](#putting-your-pi-on-a-private-network)
+  * [rc.local](#rc-local)
 
 <a name="introduction"/>
 ## Introduction
@@ -30,7 +30,7 @@ There are three main technologies that are being utilized in this project, those
 ## Mechatronic Sound Objects
 This project uses mechatronic objects as a primary source of its auditory material. Much like the work of [Mo H. Zareei](http://m-h-z.net/), this project uses "a mechatronic instrument in which the buzzing of DC motors and actuation noises of solenoids are not to be perceived as some form of unwanted aural by-product, but as the instrument’s main sonic output."[[1]](#1)
 
-The solenoids will be driven in a matter which ultimately results in a tones being created due to their velocity and frequency of actuation. The solenoids will also be striking various materials at various distances, and the derivation of the tones will be large area of experimentation.
+The solenoids will be driven in a matter which ultimately results in a tones being created due to their velocity and frequency of actuation. The solenoids will also be striking on variety of different materials, which makes the production of audible tones a large area of experimentation.
 
 <a name="1"/>
 > [1] http://m-h-z.net/wp-content/uploads/2014/09/mutor_drone-chorus-of-metrically-muted-motors_camera-ready.pdf "Mutor: Drone Chorus of Metrically Muted Motors"
