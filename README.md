@@ -230,7 +230,7 @@ And remove or comment out the default soundcard.
 
     dtparam=audio=on
 
-Then replace it with this HiFiBerry
+Then replace it with the HiFiBerry Amp+ dac.
 
     dtoverlay=hifiberry-amp
 
