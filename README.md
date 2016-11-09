@@ -120,7 +120,7 @@ The synthesized audio in this project is made using a custom Raspberry Pi networ
 
 <a name="raspberry-pi-setup"/>
 ### Rapsbery-Pi Setup(`ethel` & `agnes`)
-NOTE: This guide was for the version of Raspbian released on 2016-10-05, future versions of Raspbian will most likely differ.
+**NOTE:** This guide was for the version of Raspbian released on 2016-10-05, future versions of Raspbian will most likely differ.
 
 Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/) and set the boot type to the command line interface. I named my Pis `ethel` and `agnes`, and set my keyboard type to US.
 
