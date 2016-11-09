@@ -22,7 +22,7 @@ This is the repository and overview of an ongoing project that utilizes various 
 
 The primary compositional focus is in creating a performance that alternates the physical and harsh timbres of mechatronic sound objects with the physical sensation of auditory distortion products. The idea is to drive a solenoid at a specific speed and velocity which results in that solenoid creating an audible tone; that tone will be analyzed by and then recreated as a auditory distortion product, which is an otoacoustic emission created by stimulating the basilar membrane of the inner ear. The alternation of these two sensations and the processes in which they are created make up the compositional process that guides this performance, as the auditory distortion products will emulate the characteristics of the mechatronic sound objects.
 
-The distortion tones are also created using a wireless Raspberry Pi system. The real-time music programming language, [ChucK](http://chuck.cs.princeton.edu/release/), is installed on each of the Pis, and Open Sound Control messages are sent over a private network to control the synthesized output of the Pis. This allows for an extremely portable and inexpensive system which does not nullifies the requirement for an audio interface and cabling. This system grants an extreme degree of control over the individual speaker placement, as the each Pi only requires power and receives its control messages wirelessly.
+The distortion tones are also created using a wireless Raspberry Pi system. The real-time music programming language, [ChucK](http://chuck.cs.princeton.edu/release/), is installed on each of the Pis, and Open Sound Control messages are sent over a private network to control the synthesized output of the Pis. This allows for an extremely portable and inexpensive system which nullifies the requirement for an audio interface and cabling. This system grants an extreme degree of control over the individual speaker placement, aseach Pi only requires a power outlet (this can be made further portable with battery pack) and receives its control messages wirelessly.
 
 There are three main technologies that are being utilized in this project, those being Music Information Retrieval, mechatronics, and Auditory Distortion Products. A short introduction to these technologies along with their implementation will be described.
 
@@ -116,12 +116,13 @@ Much like the research done by Alex Chichile[[5]](#5), the interactions of these
 
 <a name="raspberry-pi-system"/>
 ## Raspberry-Pi System
-The synthesized audio in this project is made using a custom Raspberry Pi network, which is currently using two Raspberry Pi 3s, two HiFiBerry Amp+ shields, and four speakers. This allows for the auditory distortion products to be created from a variety of sources and also allows for a very portable setup, ensuring that this performance is not dependent on pre-installed multi-channel system.
+The synthesized audio in this project is made using a custom Raspberry Pi network, which is currently using two Raspberry Pi 3s, two HiFiBerry Amp+ shields, and four speakers. This allows for the auditory distortion products to be created from a variety of sources and also allows for a very portable setup, ensuring that this performance is not dependent on pre-installed multi-channel system. The enclosures for this system will all be 3D printed.
 
 <a name="raspberry-pi-setup"/>
 ### Rapsbery-Pi Setup(`ethel` & `agnes`)
-Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/), and then
-do some basic configuration. I named my Pis `ethel` and `agnes`, and set my keyboard type to US.
+NOTE: This guide was for the version of Raspbian released on 2016-10-05, future versions of Raspbian will most likely differ.
+
+Install a fresh [Raspian](https://www.raspberrypi.org/downloads/noobs/) and set the boot type to the command line interface. I named my Pis `ethel` and `agnes`, and set my keyboard type to US.
 
 <a name="initial-wifi-setup"/>
 #### Initial WIFI Setup
