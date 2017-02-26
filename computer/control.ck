@@ -1,9 +1,10 @@
 NanoKontrol2 nano;
 
-OscOut out[2];
+OscOut outAgnes;
+OscOut outEthel;
 
-["127.0.0.1", "198.167.1.11"] @=> string IP[];
-12345 => int OUT_PORT;
+outAgnes.dest("192.168.1.10", 12345);
+outEthel.dest("192.168.1.20", 12345);
 
 // pitches
 float tonic[4];
@@ -30,15 +31,15 @@ float domRatio[4];
 5.0/4.0 => domRatio[2];
 6.0/5.0 => domRatio[3];
 
-<<< "Tonic:", tonic[0], tonic[1], tonic[2], tonic[3], "" >>>;
-<<< "Dominant", dom[0], dom[1], dom[2], dom[3], "" >>>;
+// <<< "Tonic:", tonic[0], tonic[1], tonic[2], tonic[3], "" >>>;
+// <<< "Dominant", dom[0], dom[1], dom[2], dom[3], "" >>>;
 
 int chordState;
 1 => int whichChord;
 
-for (0 => int i; i < 2; i++) {
-    out[i].dest(IP[i], OUT_PORT);
-}
+// for (0 => int i; i < 2; i++) {
+//    out].dest(IP[i], OUT_PORT);
+//}
 
 4 => int NUM_TYPES;
 
@@ -148,32 +149,39 @@ fun void sendFloat(string addr, int idx, float val) {
     int whichPi;
     if (idx < 2) {
         0 => whichPi;
+        outAgnes.start(addr);
+        outAgnes.add(idx % 2);
+        outAgnes.add(val);
+        outAgnes.send();
     }
     else {
         1 => whichPi;
+        outEthel.start(addr);
+        outEthel.add(idx % 2);
+        outEthel.add(val);
+        outEthel.send();
     }
-
-    out[whichPi].start(addr);
-    out[whichPi].add(idx % 2);
-    out[whichPi].add(val);
-    out[whichPi].send();
-
+    // <<< IP[whichPi], addr, idx % 2, val >>>;
 }
 
 fun void send(string addr, int idx, int val) {
     int whichPi;
     if (idx < 2) {
         0 => whichPi;
+        outAgnes.start(addr);
+        outAgnes.add(idx % 2);
+        outAgnes.add(val);
+        outAgnes.send();
     }
     else {
         1 => whichPi;
+        outEthel.start(addr);
+        outEthel.add(idx % 2);
+        outEthel.add(val);
+        outEthel.send();
     }
 
-    out[whichPi].start(addr);
-    out[whichPi].add(idx % 2);
-    out[whichPi].add(val);
-    out[whichPi].send();
-    // <<< whichPi, idx % 2, addr, val >>>;
+    // <<< IP[whichPi], addr, idx % 2, val >>>;
 }
 
 while (true) {
