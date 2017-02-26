@@ -57,3 +57,20 @@ public class CDT extends Chubgraph {
         //}
     }
 }
+
+/*
+CDT c => blackhole;
+WinFuncEnv w => blackhole;
+
+10::samp => dur d;
+
+while (true) {
+    w.keyOn();
+    w.attack(d/2.0);
+    c.ratio(Math.random2f(1.0, 2.0));
+    c.freq(Math.random2f(100.0, 10000.0));
+    d => now;
+    w.release(d/2.0);
+    w.keyOff();
+}
+*/
