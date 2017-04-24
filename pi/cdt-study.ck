@@ -51,7 +51,7 @@ float maxRatio[2];
 for (int i; i < 2; i++) {
     win[i].setBlackman();
     cdt[i] => win[i] => g[i] => dac.chan(i);
-    g[i].gain(0.05);
+    g[i].gain(0.15);
 
     15::second => maxWindow[i];
     10::ms => minWindow[i];
